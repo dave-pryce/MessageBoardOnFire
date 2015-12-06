@@ -11,6 +11,7 @@
 
     <!-- app.js -->
     <script src="appt1.js"></script>
+    <script src="appt2.js"></script>
 
     <!--- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -21,18 +22,15 @@
   </head>
 
 
-  <body>
+  <body ng-app="sampleApp" >
 
-    <br>
-    <br>
     <div class="container-fluid">
 
 
+    <!-- Tutorial Part 1 --->
+    <div class="well" ng-controller="ChatCtrl">
 
-      <!-- Tutorial Part 1 --->
-    <div class="well" ng-app="sampleApp" ng-controller="ChatCtrl">
-
-      <h3>Tutorial Part 1</h3>
+      <h3>Introduction </h3>
       <p class="well well-sm" ng-repeat="message in messages"><strong>{{message.from}}</strong>: {{message.content}}</p>
 
       <form ng-submit="addMessage()">
@@ -42,11 +40,15 @@
 
       <pre>{{ messages | json }}</pre>
 
-      <!--- -->
-      <h3>Tutorial Part 2</h3>
-
-
     </div>
+
+      <!--- synchronized Objects -->
+      <div class="well">
+      <h3>Tutorial Part 2</h3>
+      </div>
+
+
+
 
 
 
