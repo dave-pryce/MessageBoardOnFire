@@ -1,10 +1,5 @@
-// define app
-var app = angular.module("sampleApp",["firebase"]);
-
-
-
 //factory return array of chat messages
-app.factory("chatMessages", ["$firebaseArray",
+angular.module('sampleApp').factory("chatMessages", ["$firebaseArray",
   function($firebaseArray){
     // create reference to db location where data is stored
     var randomRoomID = Math.round(Math.random() * 100000000);
@@ -18,14 +13,14 @@ app.factory("chatMessages", ["$firebaseArray",
 
 
 //controller
-app.controller("ChatCtrl", ["$scope", "chatMessages",
+angular.module('sampleApp').controller("ChatCtrl", ["$scope", "chatMessages",
   // pass new chat messages factory into controller
   function($scope, chatMessages) {
     $scope.user = "Guest" + Math.round(Math.random() * 100);
 
     // add chatMessages array to scope to be used in ng-repeat
     $scope.messages = chatMessages;
-    console.log($scope.messages);
+    //console.log($scope.messages);
 
     // method to create new messages called by ng-submit
     $scope.addMessage = function(){

@@ -10,6 +10,7 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
 
     <!-- app.js -->
+    <script src="app.js"></script>
     <script src="appt1.js"></script>
     <script src="appt2.js"></script>
 
@@ -44,7 +45,19 @@
 
       <!--- synchronized Objects -->
       <div class="well">
-      <h3>Tutorial Part 2</h3>
+      <h3>Synchronized Objects</h3>
+      <h4> Edit {{profile.name}}</h4>
+
+        <form ng-submit="saveProfile()">
+          <label>Name:</label>
+          <input type="text" ng-model="profile.name">
+          <label>Email:</label>
+          <input type="text" ng-model="profile.email">
+          <button type="submit"> Save Changes</button>
+        </form>
+
+      <br>
+      <pre>{{ profile | json }}</pre>
       </div>
 
 
