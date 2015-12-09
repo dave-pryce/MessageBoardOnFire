@@ -29,17 +29,17 @@ angular.module('sampleApp').factory('Profile',["$firebaseObject",
 angular.module('sampleApp').controller("ProfileCtrl",["$scope", "Profile",
   function($scope, Profile){
     // put profile in scope in DOM
-    $scope.profile = Profile("Ab"); //.$bindTo($scope, "profile");
+    $scope.profile = Profile("Ab").$bindTo($scope, "profile");
     //console.log($scope.profile);
 
     // calling $save() on the synchr download profile data to local object
-    $scope.saveProfile = function(){
-      $scope.profile.$save().then(function(){
-        alert('Profile saved');
-      }).catch(function(error){
-        alert('Error!');
-      });
-    };
+  //  $scope.saveProfile = function(){
+  //    $scope.profile.$save().then(function(){
+  //      alert('Profile saved');
+  //    }).catch(function(error){
+  //      alert('Error!');
+  //    });
+  //  };
   }
 ]);
 
