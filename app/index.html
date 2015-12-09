@@ -32,6 +32,7 @@
     <div class="well" ng-controller="ChatCtrl">
 
       <h3>Introduction </h3>
+
       <p class="well well-sm messagewell" ng-repeat="message in messages"><strong>{{message.from}}</strong>: {{message.content}}</p>
 
       <form ng-submit="addMessage()">
@@ -44,9 +45,10 @@
     </div>
 
       <!--- synchronized Objects -->
-      <div class="well">
+      <div class="well" ng-controller="ProfileCtrl">
       <h3>Synchronized Objects</h3>
-      <h4> Edit {{profile.name}}</h4>
+      <h4> Edit {{profile.$id}}</h4>
+      <!--p> {{ profile.name}} {{ profile.email}}</p-->
 
         <form ng-submit="saveProfile()">
           <label>Name:</label>

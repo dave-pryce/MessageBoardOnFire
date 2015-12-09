@@ -35,14 +35,14 @@ angular.module('sampleApp').controller("ChatCtrl", ["$scope", "chatMessages",
     };
 
     // if the messages are empty add something.
-    $scope.messages.$loaded(function(){
-      if ($scope.messages.length === 0) {
-        $scope.messages.$add({
-          from: "Firebase Docs",
-          content: "Hello world!"
-        });
-      }
-    });
+  //  $scope.messages.$loaded(function(){
+  //    if ($scope.messages.length === 0) {
+    //    $scope.messages.$add({
+  //        from: "Firebase Docs",
+  //        content: "Hello world!"
+    //    });
+  //}
+//});
   }
 ]);
 
