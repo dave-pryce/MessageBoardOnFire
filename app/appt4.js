@@ -2,11 +2,26 @@ angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
   function($firebaseArray) {
     // db reference
     var randomRoomId = Math.round(Math.random() * 100000000);
-    var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages" + randomRoomId);
+    var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages"); // + randomRoomId);
 
     return $firebaseArray(ref);
   }
 ]);
+
+
+
+//angular.module("sampleApp").controller("HistCtrl", ["$scope", "$firebaseArray",
+//function($scope, $firebaseArray) {
+//  var messagesRef = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages");
+  // download data from Firebase
+//  $scope.filteredMessages = $firebaseArray(messagesRef);
+  // create a query for the most recent 25 messages on the server
+     //var query = messagesRef.orderByChild("timestamp").limitToLast(3);
+     // the $firebaseArray service properly handles database queries as well
+     //$scope.filteredMessages = $firebaseArray(query);
+//}
+//]);
+
 
 
 
@@ -16,15 +31,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages",
   function($scope, chatMessages) {
 
     $scope.user = "Guest " + Math.round(Math.random()* 100);
-
     $scope.messages = chatMessages;
-
-    // download data from Firebase
-    //$scope.messages = $firebaseArray(messagesRef);
-    // quesry for most recent 10 messages
-    ///var query = chatMessages.orderByChild("timestamp").limitToLast(10);
-    //$scope.filteredMessages = $firebaseArray(query);
-
 
     $scope.addMessage = function() {
       $scope.messages.$add({
