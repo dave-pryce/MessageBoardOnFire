@@ -48,6 +48,8 @@
       <!--- synchronized Objects -->
       <div class="well" ng-controller="ProfileCtrl">
       <h3>Synchronized Objects</h3>
+      <h2><span class='glyphicon glyphicon-user'></span>User</h4>
+
       <h4> Edit {{profile.$id}}</h4>
       <!--p> {{ profile.name}} {{ profile.email}}</p-->
 
@@ -67,7 +69,7 @@
 
       <div class="well">
         <h3>Synchronized Arrays</h3>
-
+        <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
            <!--div ng-controller="HistCtrl">
              <p class="well well-sm messagewell" ng-repeat="filteredMessage in filteredMessages">
                {{filteredMessages.from}} : {{ filteredMessages.content }}
@@ -86,10 +88,23 @@
 
             <form  class="form-inline" ng-submit="addMessage()">
               <input  class="form-control" type="text" ng-model="message">
-              <input class="btn btn-success"  type="submit">
+              <button class="btn btn-success"  type="submit">Add Message</button>
             </form>
           </div>
 
+      </div>
+
+      <div class="well" ng-controller="MsgEditCtrl">
+      <h4> Edit {{message.$id}}</h4>
+      <!--p> {{ profile.name}} {{ profile.email}}</p-->
+
+        <form class="form-group" ng-submit="saveProfile()">
+          <label>Edit Message</label>
+          <input  class="form-control" type="text" ng-model="message">
+
+          <!--button type="submit"> Save Changes</button-->
+        </form>
+        <pre>{{ message | json }}</pre>
       </div>
 
 
