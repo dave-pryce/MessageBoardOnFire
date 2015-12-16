@@ -51,6 +51,7 @@ angular.module('sampleApp').factory('Message',["$firebaseObject",
 angular.module('sampleApp').controller("MsgEditCtrl",["$scope", "Message",
   function($scope, Message){
     // put profile in scope in DOM
-    $scope.message = Message("-K5bOTuWZfsSl31pokBN").$bindTo($scope, "message");
+    var messageid = "-K5bOTuWZfsSl31pokBN"
+    $scope.message = Message(messageid).$bindTo($scope, "message");
   }
 ]);

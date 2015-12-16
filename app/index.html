@@ -80,8 +80,8 @@
 
             <p class="well well-sm messagewell" ng-repeat="message in messages">
               <button class="btn btn-default">Edit</button>
-              {{message.$id}}
-              {{ message.from }}: {{ message.content }}
+
+              <strong>{{ message.from }}</strong>: {{ message.content }}
               <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">X</button>
               <br>
             </p>
@@ -95,10 +95,11 @@
       </div>
 
       <div class="well" ng-controller="MsgEditCtrl">
-      <h4> Edit {{message.$id}}   {{ message.from }}</h4>
+      <!--h4> Edit {{message.$id}}   {{ message.from }}</h4-->
 
         <form class="form-group" ng-submit="saveProfile()">
           <label>Edit Message</label>
+          {{message.from}}
           <input  class="form-control" type="text" ng-model="message.content">
 
           <!--button type="submit"> Save Changes</button-->
