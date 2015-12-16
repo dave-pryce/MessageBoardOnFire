@@ -95,12 +95,11 @@
       </div>
 
       <div class="well" ng-controller="MsgEditCtrl">
-      <h4> Edit {{message.$id}}</h4>
-      <!--p> {{ profile.name}} {{ profile.email}}</p-->
+      <h4> Edit {{message.$id}}   {{ message.from }}</h4>
 
         <form class="form-group" ng-submit="saveProfile()">
           <label>Edit Message</label>
-          <input  class="form-control" type="text" ng-model="message">
+          <input  class="form-control" type="text" ng-model="message.content">
 
           <!--button type="submit"> Save Changes</button-->
         </form>

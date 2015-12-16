@@ -34,11 +34,11 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages",
 /// Factory to find individual message
 angular.module('sampleApp').factory('Message',["$firebaseObject",
   function($firebaseObject) {
-    return function(message) {
+    return function(messageid) {
       // create ref to db node where data is stored
       //var randomId = Math.round(Math.random() * 100000000);
       var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages"); //+ randomId);
-      var messageRef = ref.child(message);
+      var messageRef = ref.child(messageid);
 
       // return it as a synchronised object
       return $firebaseObject(messageRef);
@@ -51,6 +51,6 @@ angular.module('sampleApp').factory('Message',["$firebaseObject",
 angular.module('sampleApp').controller("MsgEditCtrl",["$scope", "Message",
   function($scope, Message){
     // put profile in scope in DOM
-    $scope.editmessage = Message("-K5bOTuWZfsSl31pokBN").$bindTo($scope, "Message");
+    $scope.message = Message("-K5bOTuWZfsSl31pokBN").$bindTo($scope, "message");
   }
 ]);
