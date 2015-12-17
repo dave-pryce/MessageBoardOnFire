@@ -5,33 +5,12 @@ angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
     // db reference
     //var randomRoomId = Math.round(Math.random() * 100000000);
     var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages"); // + randomRoomId);
-
     return $firebaseArray(ref);
   }
 ]);
 
 
-
-// controller to add new messages
-angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages",
-  function($scope, chatMessages) {
-
-    $scope.user = "Guest " + Math.round(Math.random()* 100);
-    $scope.messages = chatMessages;
-
-    $scope.addMessage = function() {
-      $scope.messages.$add({
-        from : $scope.user,
-        content: $scope.message,
-        timestamp: Firebase.ServerValue.TIMESTAMP
-      });
-    }
-      $scope.message = "";
-    }
-  ]);
-
-
-/// Factory to find individual message
+/// Factory to find individual message object
 angular.module('sampleApp').factory('Message',["$firebaseObject",
   function($firebaseObject) {
     return function(messageid) {
@@ -47,11 +26,53 @@ angular.module('sampleApp').factory('Message',["$firebaseObject",
 ]);
 
 
+// controller to add new messages and edit existing
+angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message",
+  function($scope, chatMessages, Message) {
 
-angular.module('sampleApp').controller("MsgEditCtrl",["$scope", "Message",
-  function($scope, Message){
+    $scope.user = "Guest " + Math.round(Math.random()* 100);
+    $scope.messages = chatMessages;
+
+
+    // Add message
+    $scope.addMessage = function() {
+      $scope.messages.$add({
+        from : $scope.user,
+        content: $scope.message,
+        timestamp: Firebase.ServerValue.TIMESTAMP
+      });
+    }
+      $scope.message = "";
+
+
+      // edit message
+      $scope.editMessage = function(message){
+        // calling $save() on the synchronised download profile data to local object
+        $scope.saveMessage = function(){
+        $scope.message.$save().then(function(){
+        alert('Message saved');
+          }).catch(function(error){
+            alert('Error!');
+          });
+        };
+
+
+
+
+      //$scope.message = Message(messageid).$bindTo($scope, "message");
+    }
+    }
+  ]);
+
+
+
+
+
+
+//angular.module('sampleApp').controller("MsgEditCtrl",["$scope", "Message",
+  //function($scope, Message){
     // put profile in scope in DOM
-    var messageid = "-K5bOTuWZfsSl31pokBN"
-    $scope.message = Message(messageid).$bindTo($scope, "message");
-  }
-]);
+    //var messageid = "-K5bOTuWZfsSl31pokBN"
+    //$scope.message = Message(messageid).$bindTo($scope, "message");
+  //}
+//]);

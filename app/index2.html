@@ -29,6 +29,22 @@
     <div class="container-fluid">
 
 
+    <!-- Tutorial Part 1
+    <div class="well" ng-controller="ChatCtrl">
+
+      <h3>Introduction </h3>
+
+      <p class="well well-sm messagewell" ng-repeat="message in messages"><strong>{{message.from}}</strong>: {{message.content}}</p>
+
+      <form ng-submit="addMessage()">
+        <input type="text" ng-model="message">
+        <input type="submit" value="Add Message">
+      </form>
+
+      <!--pre>{{ messages | json }}</pre
+
+    </div-->
+
       <!--- synchronized Objects -->
       <div class="well" ng-controller="ProfileCtrl">
       <h3>Synchronized Object</h3>
@@ -63,7 +79,7 @@
           <div ng-controller="MsgCtrl">
 
             <p class="well well-sm messagewell" ng-repeat="message in messages">
-              <button class="btn btn-default" ng-click="editMessage(message)">Edit</button>
+              <button class="btn btn-default" ng-click="editMessage(message.$id)">Edit</button>
 
               <strong>{{ message.from }}</strong>: {{ message.content }}
               <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">X</button>
@@ -80,13 +96,15 @@
       <div class="well" ng-controller="MsgEditCtrl"-->
       <!--h4> Edit {{message.$id}}   {{ message.from }}</h4-->
 
-
+        <form class="form-group" ng-submit="saveProfile()">
           <h3><span class='glyphicon glyphicon-edit'></span> Edit Message</h3>
           {{message.from}}
 
-          <form class="form-inline" ng-submit="saveProfile()">
+          <form class="form-inline">
           <input  class="form-control" type="text" ng-model="message.content">
           <button class="btn btn-warning"  ng-click="saveMessage()" >Edit Message</button>
+          </form>
+
           <!--button type="submit"> Save Changes</button-->
         </form>
         <pre>{{ message | json }}</pre>
