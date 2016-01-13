@@ -14,11 +14,8 @@ angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
 angular.module('sampleApp').factory('Message',["$firebaseObject",
   function($firebaseObject) {
     return function(messageid) {
-      // create ref to db node where data is stored
-      //var randomId = Math.round(Math.random() * 100000000);
-      var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages"); //+ randomId);
+      var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages");
       var messageRef = ref.child(messageid);
-
       // return it as a synchronised object
       return $firebaseObject(messageRef);
     }
@@ -47,7 +44,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
       // edit message
       $scope.editMessage = function(message){
-        console.log (message.$id + " " + user + " " + message)
+        console.log (message.$id + " " + message)
         // calling $save() on the synchronised download profile data to local object
         $scope.saveMessage = function(){
         $scope.message.$save().then(function(){

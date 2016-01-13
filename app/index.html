@@ -11,8 +11,6 @@
 
     <!-- app.js -->
     <script src="app.js"></script>
-    <script src="appt1.js"></script>
-    <script src="appt2.js"></script>
     <script src="appt4.js"></script>
 
     <!--- Bootstrap -->
@@ -29,80 +27,33 @@
     <div class="container-fluid">
 
 
-      <!--- synchronized Objects -->
-      <div class="well" ng-controller="ProfileCtrl">
-      <h3>Synchronized Object</h3>
-      <h2><span class='glyphicon glyphicon-user'></span> User</h4>
-
-      <h4> Edit {{profile.$id}}</h4>
-      <!--p> {{ profile.name}} {{ profile.email}}</p-->
-
-        <form class="form-group" ng-submit="saveProfile()">
-          <label>Name:</label>
-          <input  class="form-control" type="text" ng-model="profile.name">
-          <label>Email:</label>
-          <input  class="form-control" type="text" ng-model="profile.email">
-          <!--button type="submit"> Save Changes</button-->
-        </form>
-
-      <br>
-      <pre>{{ profile | json }}</pre>
-      </div>
-
-
-
-      <div class="well">
-        <h3>Synchronized Arrays</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
         <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
-           <!--div ng-controller="HistCtrl">
-             <p class="well well-sm messagewell" ng-repeat="filteredMessage in filteredMessages">
-               {{filteredMessages.from}} : {{ filteredMessages.content }}
-            </p>
-          </div-->
-
-          <div ng-controller="MsgCtrl">
-
-            <p class="well well-sm messagewell" ng-repeat="message in messages">
-              <!--button class="btn btn-default" ng-click="editMessage(message)">Edit</button-->
+        </div>
 
 
+      <div ng-controller="MsgCtrl">
+        <div class='panel-body'>
+          <p class="well well-sm messagewell" ng-repeat="message in messages">
+          <button class='btn btn-warning' ng-click='editMessage(message)'>edit</button>
 
-              <strong>{{ message.from }}</strong>: {{ message.content }}
-              <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">X</button>
-              <br>
+          <strong>{{ message.from }}</strong>: {{ message.content }}
+          <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">X</button>
+         </p>
+        </div>
 
-              <form class="form-inline" ng-submit="saveProfile()">
-              <input  class="form-control" type="text" ng-model="message.content">
-              <button class="btn btn-warning"  ng-click="saveMessage()" >Edit Message</button>
-              <!--button type="submit"> Save Changes</button-->
-              </form>
-
-            </p>
-
-
-
-            <form  class="form-inline" ng-submit="addMessage()">
+          <div class='panel-footer'>
+            <h3>Add New Message</h3>
+            <form ng-submit="addMessage()">
               <input  class="form-control" type="text" ng-model="message">
+              <br>
               <button class="btn btn-success"  type="submit">Add Message</button>
             </form>
-          <!--/div>
+          </div>
 
       </div>
-      <div class="well" ng-controller="MsgEditCtrl"-->
-      <!--h4> Edit {{message.$id}}   {{ message.from }}</h4-->
-
-
-          <!--h3><span class='glyphicon glyphicon-edit'></span> Edit Message</h3-->
-
-        <!--pre>{{ message | json }}</pre-->
-      </div>
-
-
-
-
-  </div>
-
-
+    </div>
 
   </body>
 
