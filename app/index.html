@@ -63,12 +63,23 @@
           <div ng-controller="MsgCtrl">
 
             <p class="well well-sm messagewell" ng-repeat="message in messages">
-              <button class="btn btn-default" ng-click="editMessage(message)">Edit</button>
+              <!--button class="btn btn-default" ng-click="editMessage(message)">Edit</button-->
+
+
 
               <strong>{{ message.from }}</strong>: {{ message.content }}
               <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">X</button>
               <br>
+
+              <form class="form-inline" ng-submit="saveProfile()">
+              <input  class="form-control" type="text" ng-model="message.content">
+              <button class="btn btn-warning"  ng-click="saveMessage()" >Edit Message</button>
+              <!--button type="submit"> Save Changes</button-->
+              </form>
+
             </p>
+
+
 
             <form  class="form-inline" ng-submit="addMessage()">
               <input  class="form-control" type="text" ng-model="message">
@@ -81,14 +92,8 @@
       <!--h4> Edit {{message.$id}}   {{ message.from }}</h4-->
 
 
-          <h3><span class='glyphicon glyphicon-edit'></span> Edit Message</h3>
-          {{message.from}}
+          <!--h3><span class='glyphicon glyphicon-edit'></span> Edit Message</h3-->
 
-          <form class="form-inline" ng-submit="saveProfile()">
-          <input  class="form-control" type="text" ng-model="message.content">
-          <button class="btn btn-warning"  ng-click="saveMessage()" >Edit Message</button>
-          <!--button type="submit"> Save Changes</button-->
-        </form>
         <!--pre>{{ message | json }}</pre-->
       </div>
 
