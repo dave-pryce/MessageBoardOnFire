@@ -44,7 +44,9 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
       // edit message
       $scope.editMessage = function(message){
-        console.log (message.$id + " " + message)
+        // add edit property to object
+        message.edit = true;
+        //console.log (message.$id + " "+ message.edit)
         // calling $save() on the synchronised download profile data to local object
         $scope.saveMessage = function(){
         $scope.message.$save().then(function(){
