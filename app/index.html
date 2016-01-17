@@ -37,13 +37,18 @@
 
         <div class='panel-body'>
           <div class="well well-sm messagewell" ng-repeat="message in messages">
-          <button class='btn btn-warning' ng-click='editMessage(message)'>edit</button>
-          <strong>{{ message.from }}</strong>: {{ message.content }}
 
-          <form ng-show="message.edit">
-            <input class='form-control' type="text" ng-model="message">
+          <div ng-hide="message.edit">
+            <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
+            <strong>{{ message.from }}</strong>: {{ message.content }}
+            <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
+          </div>
+
+          <form ng-submit="editMessage(message)" ng-show="message.edit">
+           <input class='form-control in-line' type="text" ng-model="message.content">
+           <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
           </form>
-          <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">X</button>
+
           </div>
         </div>
 

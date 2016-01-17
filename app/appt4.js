@@ -1,5 +1,5 @@
 
-// factory to get all messages in arrary
+//////////////////// factory to get all messages in arrary ////////////////////////////
 angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
   function($firebaseArray) {
     // db reference
@@ -10,7 +10,7 @@ angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
 ]);
 
 
-/// Factory to find individual message object
+///////////////// Factory to find individual message object ////////////////////////////
 angular.module('sampleApp').factory('Message',["$firebaseObject",
   function($firebaseObject) {
     return function(messageid) {
@@ -23,13 +23,33 @@ angular.module('sampleApp').factory('Message',["$firebaseObject",
 ]);
 
 
-// controller to add new messages and edit existing
+////////////////////// controller to add new messages and edit existing /////////////////////
 angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message",
   function($scope, chatMessages, Message) {
 
     $scope.user = "Guest " + Math.round(Math.random()* 100);
     $scope.messages = chatMessages;
 
+
+    // show edit form
+    $scope.showEdit = function(message){
+      //console.log("edit");
+      message.edit = true;
+    };
+
+    // edit message
+    $scope.editMessage = function(message){
+      // add edit property to object
+      //console.log (message.$id + " "+ message.edit)
+      // calling $save() on the synchronised download profile data to local object
+      $scope.saveMessage = function(){
+      $scope.message.$save();
+      //$scope.message = Message(messageid).$bindTo($scope, "message");
+      message.edit = false;
+    };
+  };
+
+        //$scope.message = Message(messageid).$bindTo($scope, "message");
 
     // Add message
     $scope.addMessage = function() {
@@ -38,34 +58,12 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
         content: $scope.message,
         timestamp: Firebase.ServerValue.TIMESTAMP
       });
-    }
       $scope.message = "";
+    };
 
 
-      // edit message
-      $scope.editMessage = function(message){
-        // add edit property to object
-        message.edit = true;
-        //console.log (message.$id + " "+ message.edit)
-        // calling $save() on the synchronised download profile data to local object
-        $scope.saveMessage = function(){
-        $scope.message.$save().then(function(){
-        alert('Message saved');
-          }).catch(function(error){
-            alert('Error!');
-          });
-        };
-
-
-
-
-      //$scope.message = Message(messageid).$bindTo($scope, "message");
-    }
     }
   ]);
-
-
-
 
 
 
