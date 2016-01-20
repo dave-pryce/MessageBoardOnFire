@@ -1,28 +1,3 @@
-
-//////////////////// factory to get all messages in arrary ////////////////////////////
-angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
-  function($firebaseArray) {
-    // db reference
-    //var randomRoomId = Math.round(Math.random() * 100000000);
-    var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages"); // + randomRoomId);
-    return $firebaseArray(ref);
-  }
-]);
-
-
-///////////////// Factory to find individual message object ////////////////////////////
-angular.module('sampleApp').factory('Message',["$firebaseObject",
-  function($firebaseObject) {
-    return function(messageid) {
-      var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/messages");
-      var messageRef = ref.child(messageid);
-      // return it as a synchronised object
-      return $firebaseObject(messageRef);
-    }
-  }
-]);
-
-
 ////////////////////// controller to add new messages and edit existing /////////////////////
 angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message",
   function($scope, chatMessages, Message) {
@@ -64,13 +39,3 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     }
   ]);
-
-
-
-//angular.module('sampleApp').controller("MsgEditCtrl",["$scope", "Message",
-  //function($scope, Message){
-    // put profile in scope in DOM
-    //var messageid = "-K5bOTuWZfsSl31pokBN"
-    //$scope.message = Message(messageid).$bindTo($scope, "message");
-  //}
-//]);
