@@ -11,14 +11,15 @@
 
     <!-- app.js -->
     <script src="app.js"></script>
-    
+
     <!-- Factories -->
     <script src="factories/messageArray.js"></script>
     <script src="factories/messageObject.js"></script>
     <script src="factories/userAuth.js"></script>
 
-    <!-- Controller -->
+    <!-- Controllers -->
     <script src="controllers/messageController.js"></script>
+    <script src="controllers/userController.js"></script>
 
     <!--- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -32,6 +33,27 @@
   <body ng-app="sampleApp" >
 
     <div class="container-fluid">
+
+
+
+      <!-- User sign in -->
+
+      <div class="well" ng-controller="userCtrl">
+
+        <form>
+          <h2>Sign Up</h2>
+          <input type="text" placeholder="email" ng-model="email">
+          <input type="text" placeholder="password" ng-model="password">
+          <br><br>
+          <button class="btn btn-success" ng-click="createUser()">Sign Up</button>
+        </form>
+
+        <p ng-if="message">Message: <strong>{{ alert }}</strong></p>
+        <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+      </div>
+
+
+      <!-- Messages -->
 
 
       <div class="panel panel-default">
