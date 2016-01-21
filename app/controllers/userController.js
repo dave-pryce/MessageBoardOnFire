@@ -1,7 +1,7 @@
 angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
   function($scope, Auth){
     $scope.createUser = function(){
-      $scope.alert = null;
+      $scope.message = null;
       $scope.error = null;
 
       Auth.$createUser({
