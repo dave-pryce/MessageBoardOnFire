@@ -8,6 +8,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
+    console.log(authData.uid);
 
 
     // show edit form

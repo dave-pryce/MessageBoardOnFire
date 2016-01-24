@@ -36,16 +36,14 @@
 
 
 
+    <div  ng-controller="userCtrl">
+      <p ng-show="authData"><{{authData.uid}}</p>
+
       <!-- User sign in -->
+      <div class="well" ng-hide="authData.uid">
 
-      <div class="well" ng-controller="userCtrl">
-
-        <div ng-if="alert"class="alert alert-success" role="alert" >{{ alert }}
-        </div>
-
-        <div ng-if="error" class="alert alert-danger" role="alert">{{ error }}
-        </div>
-
+        <p ng-if="alert"class="alert alert-success" role="alert" >{{ alert }}</p>
+        <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
         <form>
           <h2>Sign Up</h2>
@@ -60,9 +58,7 @@
           <input type ="password" placeholder="password" ng-model="passwordIn">
           <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
         </form>
-
-
-
+        </div>
       </div>
 
 
@@ -79,17 +75,17 @@
 
         <div class='panel-body'>
           <div class="well well-sm messagewell" ng-repeat="message in messages">
+
+        <div ng-hide="message.edit">
           <strong>{{ message.from }}</strong>: {{ message.content }}
-        <div ng-hide="authData">
-          <div ng-hide="message.edit">
-            <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
-              <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
-          </div>
         </div>
 
-
-
-
+        <div ng-show="authData">
+          <div ng-hide="message.edit">
+            <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
+            <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
+          </div>
+        </div>
 
 
           <form ng-submit="editMessage(message)" ng-show="message.edit">
