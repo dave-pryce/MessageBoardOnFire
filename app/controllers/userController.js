@@ -1,5 +1,6 @@
 angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
   function($scope, Auth){
+
     $scope.createUser = function(){
       $scope.alert = null;
       $scope.error = null;
@@ -12,22 +13,23 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
       }).catch(function(error) {
         $scope.error = error;
       });
-
-
-      $scope.signIn = function(){
-      $scope.authObj.$authWithPassword({
-        email: $scope.email,
-        password: $scope.password
-      }).then(function(authData) {
-        console.log("Logged in as:", authData.uid);
-      }).catch(function(error) {
-        console.error("Authentication failed:", error);
-      });
     }
 
 
-    };
-  }
+      // Sign In
+      $scope.signIn = function(){
+
+      Auth.$authWithPassword({
+        email: $scope.emailIn,
+        password: $scope.passwordIn
+      }).then(function(authData) {
+        $scope.alert = "Logged in as: " + authData.uid;
+      }).catch(function(error) {
+        $scope.error = "Authentication failed: " + error;
+      });
+    }
+
+    }
 ])
 
 

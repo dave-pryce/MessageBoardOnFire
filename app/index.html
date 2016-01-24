@@ -40,13 +40,18 @@
 
       <div class="well" ng-controller="userCtrl">
 
+        <div ng-if="alert"class="alert alert-success" role="alert" >{{ alert }}
+        </div>
+
+        <div ng-if="error" class="alert alert-danger" role="alert">{{ error }}
+        </div>
+
+
         <form>
           <h2>Sign Up</h2>
           <input type="text" placeholder="email" ng-model="email">
           <input type="password" placeholder="password" ng-model="password">
           <button class="btn btn-success" ng-click="createUser()">Sign up</button>
-          <p ng-if="alert">Message: <strong>{{ alert }}</strong></p>
-          <p ng-if="error">Error: <strong>{{ error }}</strong></p>
         </form>
 
         <form>
@@ -74,17 +79,24 @@
 
         <div class='panel-body'>
           <div class="well well-sm messagewell" ng-repeat="message in messages">
-
+          <strong>{{ message.from }}</strong>: {{ message.content }}
+        <div ng-hide="authData">
           <div ng-hide="message.edit">
             <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
-            <strong>{{ message.from }}</strong>: {{ message.content }}
-            <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
+              <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
           </div>
+        </div>
+
+
+
+
+
 
           <form ng-submit="editMessage(message)" ng-show="message.edit">
            <input class='form-control in-line' type="text" ng-model="message.content">
            <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
           </form>
+        </div>
 
           </div>
         </div>

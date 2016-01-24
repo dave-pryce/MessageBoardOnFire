@@ -1,9 +1,13 @@
 ////////////////////// controller to add new messages and edit existing /////////////////////
-angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message",
-  function($scope, chatMessages, Message) {
+angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message", "Auth",
+  function($scope, chatMessages, Message, Auth) {
 
-    $scope.user = "Guest " + Math.round(Math.random()* 100);
+    //$scope.user = "Guest " + Math.round(Math.random()* 100);
     $scope.messages = chatMessages;
+    $scope.auth = Auth;
+
+    $scope.auth.$onAuth(function(authData){
+    $scope.authData = authData;
 
 
     // show edit form
@@ -36,6 +40,8 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
       $scope.message = "";
     };
 
+
+  });
 
     }
   ]);
