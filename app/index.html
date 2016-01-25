@@ -37,7 +37,6 @@
 
 
     <div  ng-controller="userCtrl">
-      <p ng-show="authData"><{{authData.uid}}</p>
 
       <!-- User sign in -->
       <div class="well" ng-hide="authData.uid">
@@ -72,7 +71,7 @@
 
 
       <div ng-controller="MsgCtrl">
-
+        <p>{{authData.uid}}</p>
         <div class='panel-body'>
           <div class="well well-sm messagewell" ng-repeat="message in messages">
 

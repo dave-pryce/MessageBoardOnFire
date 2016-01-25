@@ -29,17 +29,13 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
       });
     }
 
+
+
+    // sign onAuth
+    $scope.signOut = function(){
+      Auth.$unauth()
     }
+
+    }
+
 ])
-
-
-
-
-//$scope.authObj.$authWithPassword({
-//  email: $scope.email,
-//  password: $scope.password
-//}).then(function(authData) {
-//  console.log("Logged in as:", authData.uid);
-//}).catch(function(error) {
-//  console.error("Authentication failed:", error);
-//});
