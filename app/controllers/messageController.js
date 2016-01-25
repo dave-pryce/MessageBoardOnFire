@@ -8,7 +8,8 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
-    console.log(authData.uid);
+    $scope.user = authData.uid;
+    //console.log(authData.uid);
 
 
     // show edit form
@@ -24,12 +25,11 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
       // calling $save() on the synchronised download profile data to local object
       $scope.saveMessage = function(){
       $scope.message.$save();
-      //$scope.message = Message(messageid).$bindTo($scope, "message");
       message.edit = false;
     };
   };
 
-        //$scope.message = Message(messageid).$bindTo($scope, "message");
+
 
     // Add message
     $scope.addMessage = function() {
