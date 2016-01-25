@@ -31,39 +31,51 @@
 
 
   <body ng-app="sampleApp" >
-
-    <div class="container-fluid">
+  <div class="container-fluid">
 
 
 
     <div  ng-controller="userCtrl">
 
       <!-- User sign in -->
-      <div class="well" ng-hide="authData.uid">
+      <div class="well">
+
+      <div ng-hide="authData">
 
         <p ng-if="alert"class="alert alert-success" role="alert" >{{ alert }}</p>
         <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
-        <form>
+        <form class="well messagewell">
           <h2>Sign Up</h2>
           <input type="text" placeholder="email" ng-model="email">
           <input type="password" placeholder="password" ng-model="password">
           <button class="btn btn-success" ng-click="createUser()">Sign up</button>
         </form>
 
-        <form>
+        <h4> OR </h4>
+
+        <form class="well messagewell">
           <h2>Sign In</h2>
           <input type ="text" placeholder="email" ng-model="emailIn">
           <input type ="password" placeholder="password" ng-model="passwordIn">
           <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
         </form>
         </div>
+
+        <div ng-show="authData">
+        <p> <strong>Signed in as:</strong> {{authData.uid}} <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
+        </div>
+
       </div>
 
 
+        </div>
+      </div>
+
+
+
+
       <!-- Messages -->
-
-
       <div class="panel panel-default">
         <div class="panel-heading">
         <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
@@ -71,7 +83,6 @@
 
 
       <div ng-controller="MsgCtrl">
-        <p>{{authData.uid}}</p>
         <div class='panel-body'>
           <div class="well well-sm messagewell" ng-repeat="message in messages">
 
@@ -106,8 +117,10 @@
         </div>
 
       </div>
-    </div>
 
-  </body>
 
+
+
+</div>
+</body>
 </html>

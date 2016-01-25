@@ -1,5 +1,6 @@
 angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
   function($scope, Auth){
+    $scope.auth = Auth;
 
     $scope.createUser = function(){
       $scope.alert = null;
@@ -29,13 +30,20 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
       });
     }
 
-
-
     // sign onAuth
     $scope.signOut = function(){
       Auth.$unauth()
     }
 
+
+    // check auth
+    $scope.auth.$onAuth(function(authData){
+    $scope.authData = authData;
+    })
+
+
+
     }
+
 
 ])
