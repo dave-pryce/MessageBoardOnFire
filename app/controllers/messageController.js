@@ -2,13 +2,15 @@
 angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message", "Auth",
   function($scope, chatMessages, Message, Auth) {
 
-    //$scope.user = "Guest " + Math.round(Math.random()* 100);
     $scope.messages = chatMessages;
     $scope.auth = Auth;
 
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
+    if (authData)
+    {
     $scope.user = authData.uid;
+    }
     //console.log(authData.uid);
 
 
@@ -20,29 +22,37 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     // edit message
     $scope.editMessage = function(message){
-      // add edit property to object
-      //console.log (message.$id + " "+ message.edit)
       // calling $save() on the synchronised download profile data to local object
       $scope.saveMessage = function(){
-      $scope.message.$save();
-      message.edit = false;
+        console.log(message);
+        console.log(message.from);
+        console.log($scope.user);
+        if (message.user === authData.uid)
+        {
+          $scope.message.$save();
+          message.edit = false;
+      } else $scope.error = 'Not Authorised'
     };
   };
 
 
-
-    // Add message
-    $scope.addMessage = function() {
-      $scope.messages.$add({
-        from : $scope.user,
-        content: $scope.message,
-        timestamp: Firebase.ServerValue.TIMESTAMP
-      });
-      $scope.message = "";
-    };
-
+  // Add message
+  $scope.addMessage = function() {
+    //$scope.user = "Guest " + Math.round(Math.random()* 100);
+    $scope.messages.$add({
+      from : $scope.user,
+      content: $scope.message,
+      timestamp: Firebase.ServerValue.TIMESTAMP
+    });
+    $scope.message = "";
+  };
 
   });
+
+
+
+
+
 
     }
   ]);

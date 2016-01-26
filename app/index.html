@@ -49,6 +49,7 @@
           <h2>Sign Up</h2>
           <input type="text" placeholder="email" ng-model="email">
           <input type="password" placeholder="password" ng-model="password">
+          <br><br>
           <button class="btn btn-success" ng-click="createUser()">Sign up</button>
         </form>
 
@@ -58,12 +59,16 @@
           <h2>Sign In</h2>
           <input type ="text" placeholder="email" ng-model="emailIn">
           <input type ="password" placeholder="password" ng-model="passwordIn">
+          <br><br>
           <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
         </form>
         </div>
 
         <div ng-show="authData">
-        <p> <strong>Signed in as:</strong> {{authData.uid}} <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
+        <p> <strong>Signed in as:</strong> {{authData.uid}}
+        <br>
+        <br>
+        <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
         </div>
 
       </div>
@@ -101,6 +106,8 @@
           <form ng-submit="editMessage(message)" ng-show="message.edit">
            <input class='form-control in-line' type="text" ng-model="message.content">
            <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
+           <p> {{error}}</p>
+           <br>
           </form>
         </div>
 
