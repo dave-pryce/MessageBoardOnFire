@@ -2,6 +2,7 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
   function($scope, Auth){
     $scope.auth = Auth;
 
+    // create new user
     $scope.createUser = function(){
       $scope.alert = null;
       $scope.error = null;
@@ -25,21 +26,27 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
         password: $scope.passwordIn
       }).then(function(authData) {
         $scope.alert = "Logged in as: " + authData.uid;
+        $scope.error = null;
+        $scope.emailIn = null;
+        $scope.passwordIn = null;
+        // signin to expired on browser shut down
+        remember : "sessionOnly"
       }).catch(function(error) {
         $scope.error = "Authentication failed: " + error;
       });
     }
 
-    // sign onAuth
+    // signOut
     $scope.signOut = function(){
-      Auth.$unauth()
-    }
+      Auth.$unauth();
+      $scope.alert = null;
+    };
 
 
-    // check auth
+    // check authorisation status
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
-    })
+  });
 
 
 

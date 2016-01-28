@@ -103,9 +103,10 @@
         </div>
 
 
-          <form ng-submit="editMessage(message)" ng-show="message.edit">
+          <form ng-show="message.edit">
            <input class='form-control in-line' type="text" ng-model="message.content">
            <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
+           <button class='btn btn-danger' ng-click="editMessage(message)">Save</button>
            <p> {{error}}</p>
            <br>
           </form>

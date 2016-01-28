@@ -11,6 +11,9 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
     {
     $scope.user = authData.uid;
     }
+    else {
+      $scope.user = "Guest " + Math.round(Math.random()* 100);
+    }
     //console.log(authData.uid);
 
 
@@ -22,7 +25,6 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     // edit message
     $scope.editMessage = function(message){
-      // calling $save() on the synchronised download profile data to local object
       $scope.saveMessage = function(){
         console.log(message);
         console.log(message.from);
@@ -38,7 +40,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
   // Add message
   $scope.addMessage = function() {
-    //$scope.user = "Guest " + Math.round(Math.random()* 100);
+
     $scope.messages.$add({
       from : $scope.user,
       content: $scope.message,
