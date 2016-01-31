@@ -12,6 +12,12 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
         password: $scope.password
       }).then(function(userData) {
         $scope.alert = "User Created with uid: " + userData.uid;
+        // sign in after sign up
+        Auth.$authWithPassword({
+          email: $scope.email,
+          password: $scope.password
+        })
+
       }).catch(function(error) {
         $scope.error = error;
       });
