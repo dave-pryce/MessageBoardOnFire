@@ -38,7 +38,7 @@
     <div  ng-controller="userCtrl">
 
       <!-- User sign in -->
-      <div class="well">
+      <div class="well sign">
 
       <div ng-hide="authData">
 
@@ -84,18 +84,20 @@
       <div class="panel panel-default">
         <div class="panel-heading">
         <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
+
         </div>
 
 
       <div ng-controller="MsgCtrl">
+
         <div class='panel-body'>
           <div class="well well-sm messagewell" ng-repeat="message in messages">
-
         <div ng-hide="message.edit">
           <strong>{{ message.from }}</strong>: {{ message.content }}
         </div>
 
-        <div ng-show="authData">
+        <div ng-show="message.from === authData.uid">
+
           <div ng-hide="message.edit">
             <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
             <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
@@ -103,12 +105,12 @@
         </div>
 
 
-          <form ng-show="message.edit">
+          <form ng-show="message.edit" ng-submit="saveMessage(message)">
            <input class='form-control in-line' type="text" ng-model="message.content">
            <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
-           <button class='btn btn-danger' ng-click="editMessage(message)">Save</button>
-           <p> {{error}}</p>
            <br>
+           <p> {{error}}</p>
+
           </form>
         </div>
 

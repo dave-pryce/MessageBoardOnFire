@@ -5,6 +5,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
     $scope.messages = chatMessages;
     $scope.auth = Auth;
 
+
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
     if (authData)
@@ -24,18 +25,14 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
     };
 
     // edit message
-    $scope.editMessage = function(message){
-      $scope.saveMessage = function(){
-        console.log(message);
-        console.log(message.from);
-        console.log($scope.user);
-        if (message.user === authData.uid)
+      $scope.saveMessage = function(message){
+        if ($scope.user === authData.uid)
         {
-          $scope.message.$save();
-          message.edit = false;
+         $scope.message.$save();
+         message.edit = false;
       } else $scope.error = 'Not Authorised'
     };
-  };
+
 
 
   // Add message
