@@ -26,9 +26,15 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     // edit message
       $scope.saveMessage = function(message){
+        $scope.editedMessage = message
+        
         if ($scope.user === authData.uid)
         {
-         $scope.message.$save();
+         $scope.editedMessage.$save().then(function(){
+           alert('message saved');
+         }).catch(function(error){
+           $scope.error = 'error';
+         });
          message.edit = false;
       } else $scope.error = 'Not Authorised'
     };
