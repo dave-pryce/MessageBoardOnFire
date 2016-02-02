@@ -4,23 +4,18 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth",
 
     // create new user
     $scope.createUser = function(){
-      $scope.alert = null;
+
+      // null out user feedback info / error
+      $scope.info = null;
       $scope.error = null;
 
       Auth.$createUser({
-        email: $scope.email,
-        password: $scope.password
-      }).then(function(userData) {
-        $scope.alert = "User Created with uid: " + userData.uid;
-        // sign in after sign up
-        Auth.$authWithPassword({
-          email: $scope.email,
-          password: $scope.password
-        })
+        email: $scope.email, password: $scope.password}).then(function(userData) {
+        $scope.info = "User Created with uid: " + userData.uid;
 
-      }).catch(function(error) {
-        $scope.error = error;
-      });
+        // sign in after sign up
+        Auth.$authWithPassword({email: $scope.email,password: $scope.password})
+      }).catch(function(error) {$scope.error = error;});
     }
 
 

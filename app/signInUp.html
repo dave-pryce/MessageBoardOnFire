@@ -1,0 +1,33 @@
+<div class="well sign" ng-controller="userCtrl">
+
+    <div ng-hide="authData">
+      <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
+      <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
+
+      <form class="well messagewell">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="email" ng-model="email">
+        <input type="password" placeholder="password" ng-model="password">
+        <br><br>
+        <button class="btn btn-success" ng-click="createUser()">Sign up</button>
+      </form>
+
+      <h4> OR </h4>
+
+      <form class="well messagewell">
+        <h2>Sign In</h2>
+        <input type ="text" placeholder="email" ng-model="emailIn">
+        <input type ="password" placeholder="password" ng-model="passwordIn">
+        <br><br>
+        <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
+      </form>
+    </div>
+
+    <div ng-show="authData">
+      <p> <strong>Signed in as:</strong> {{authData.uid}}
+      <br>
+      <br>
+      <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
+    </div>
+
+</div>

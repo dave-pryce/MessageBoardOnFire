@@ -33,104 +33,15 @@
   <body ng-app="sampleApp" >
   <div class="container-fluid">
 
+  <!-- Sign In / Up -->
+  <div ng-include="'signInUp.html'"></div>
 
+  <!-- messages -->
+  <div ng-incldue="'messages.html'"></div>
 
-    <div  ng-controller="userCtrl">
+  <!-- new message -->
+  <div ng-include"'newMessages'"></div>
 
-      <!-- User sign in -->
-      <div class="well sign">
-
-      <div ng-hide="authData">
-
-        <p ng-if="alert"class="alert alert-success" role="alert" >{{ alert }}</p>
-        <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
-
-        <form class="well messagewell">
-          <h2>Sign Up</h2>
-          <input type="text" placeholder="email" ng-model="email">
-          <input type="password" placeholder="password" ng-model="password">
-          <br><br>
-          <button class="btn btn-success" ng-click="createUser()">Sign up</button>
-        </form>
-
-        <h4> OR </h4>
-
-        <form class="well messagewell">
-          <h2>Sign In</h2>
-          <input type ="text" placeholder="email" ng-model="emailIn">
-          <input type ="password" placeholder="password" ng-model="passwordIn">
-          <br><br>
-          <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
-        </form>
-        </div>
-
-        <div ng-show="authData">
-        <p> <strong>Signed in as:</strong> {{authData.uid}}
-        <br>
-        <br>
-        <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
-        </div>
-
-      </div>
-
-
-        </div>
-      </div>
-
-
-
-
-      <!-- Messages -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-        <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
-
-        </div>
-
-
-      <div ng-controller="MsgCtrl">
-
-        <div class='panel-body'>
-          <div class="well well-sm messagewell" ng-repeat="message in messages">
-        <div ng-hide="message.edit">
-          <strong>{{ message.from }}</strong>: {{ message.content }}
-        </div>
-
-        <div ng-show="message.from === authData.uid">
-
-          <div ng-hide="message.edit">
-            <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
-            <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
-          </div>
-        </div>
-
-
-          <form ng-show="message.edit" ng-submit="saveMessage(message)">
-           <input class='form-control in-line' type="text" ng-model="message.content">
-           <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
-           <br>
-           <p> {{error}}</p>
-
-          </form>
-        </div>
-
-          </div>
-
-
-        <div class='panel-footer'>
-          <h3>Add New Message</h3>
-          <form ng-submit="addMessage()">
-          <input  class="form-control" type="text" ng-model="message">
-          <br>
-          <button class="btn btn-success"  type="submit">Add Message</button>
-          </form>
-        </div>
-
-      </div>
-
-
-
-
-</div>
-</body>
+  </div>
+  </body>
 </html>
