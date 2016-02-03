@@ -5,7 +5,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
     $scope.messages = chatMessages;
     $scope.auth = Auth;
 
-
+    // check to see if signed in
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
     if (authData)
@@ -26,12 +26,12 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
 
     // edit message
       $scope.saveMessage = function(message){
-        $scope.editedMessage = message
-        
+        // call message object
+        $scope.editedMessage = Message(message.$id);
         if ($scope.user === authData.uid)
         {
          $scope.editedMessage.$save().then(function(){
-           alert('message saved');
+           $scope.info = 'message saved';
          }).catch(function(error){
            $scope.error = 'error';
          });
