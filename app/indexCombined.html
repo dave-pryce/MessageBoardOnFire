@@ -94,8 +94,8 @@
                   </div>
 
                   <!-- show edit form -->
+                  <!--form ng-show="message.edit" ng-submit="messages.$save(message)"-->
                   <form ng-show="message.edit" ng-submit="saveMessage(message)">
-                    <input class='form-control in-line' type="text" ng-model="message.from">
                     <input class='form-control in-line' type="text" ng-model="message.content">
                     <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
                     <br>

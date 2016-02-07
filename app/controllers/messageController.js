@@ -28,12 +28,10 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
     // edit message
 
       $scope.saveMessage = function(message){
-        $scope.message = Message(message.$id);
-        // find message
-        console.log($scope.message);
+        //console.log($scope.message);
         if ($scope.user === authData.uid)
         {
-         $scope.message.$save().then(function(){
+         $scope.messages.$save(message).then(function(){
            alert('message saved');
          }).catch(function(error){
            $scope.error = 'error';
