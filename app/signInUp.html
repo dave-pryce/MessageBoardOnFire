@@ -4,22 +4,30 @@
       <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
       <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
-      <form class="well messagewell">
+      <form class="well messagewell ">
+        <div class='form-group'>
         <h2>Sign Up</h2>
-        <input type="text" placeholder="email" ng-model="email">
-        <input type="password" placeholder="password" ng-model="password">
+        <input type="text" class='form-control' placeholder="Full Name" ng-model="name">
+        <br>
+        <input type="text" class='form-control' placeholder="email" ng-model="email">
+        <br>
+        <input type="password" class='form-control' placeholder="password" ng-model="password">
         <br><br>
         <button class="btn btn-success" ng-click="createUser()">Sign up</button>
+        </div>
       </form>
 
       <h4> OR </h4>
 
       <form class="well messagewell">
+        <div class='form-group'>
         <h2>Sign In</h2>
-        <input type ="text" placeholder="email" ng-model="emailIn">
-        <input type ="password" placeholder="password" ng-model="passwordIn">
+        <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
+        <br>
+        <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
         <br><br>
         <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
+        </div>
       </form>
     </div>
 
