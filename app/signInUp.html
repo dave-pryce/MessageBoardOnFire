@@ -4,6 +4,20 @@
       <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
       <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
+
+      <form class="well messagewell">
+        <div class='form-group'>
+        <h2>Sign In</h2>
+        <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
+        <br>
+        <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
+        <br><br>
+        <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
+        </div>
+      </form>
+
+      <h4> OR </h4>
+
       <form class="well messagewell ">
         <div class='form-group'>
         <h2>Sign Up</h2>
@@ -17,22 +31,10 @@
         </div>
       </form>
 
-      <h4> OR </h4>
-
-      <form class="well messagewell">
-        <div class='form-group'>
-        <h2>Sign In</h2>
-        <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
-        <br>
-        <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
-        <br><br>
-        <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
-        </div>
-      </form>
     </div>
 
-    <div ng-show="authData">
-      <p> <strong>Signed in as:</strong> {{authData.uid}}
+    <div class ="well" ng-show="authData">
+      <p> <strong>Signed in as:</strong> {{authData.uid}}</p>
       <br>
       <br>
       <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
