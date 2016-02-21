@@ -32,7 +32,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Me
         if ($scope.user === authData.uid)
         {
          $scope.messages.$save(message).then(function(){
-           alert('message saved');
+           //alert('message saved');
          }).catch(function(error){
            $scope.error = alert(error);
          });
