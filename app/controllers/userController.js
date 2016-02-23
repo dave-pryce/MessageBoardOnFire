@@ -11,7 +11,8 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
       $scope.error = null;
 
         Auth.$createUser({
-        email: $scope.email, password: $scope.password}).then(function(userData) {
+        email: $scope.email,
+        password: $scope.password}).then(function(userData) {
         $scope.info = "User Created with uid: " + userData.uid;
 
 
@@ -21,7 +22,7 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
           name : $scope.name,
           email: $scope.email,
           timestamp: Firebase.ServerValue.TIMESTAMP
-        });
+       });
 
 
         // sign in after sign up
