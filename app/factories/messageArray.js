@@ -1,9 +1,8 @@
 /////////////////// factory to get all messages in arrary ////////////////////////////
-angular.module("sampleApp").factory("chatMessages",["$firebaseArray",
+angular.module("sampleApp").factory("Messages",["$firebaseArray",
   function($firebaseArray) {
-    // db reference
-    //var randomRoomId = Math.round(Math.random() * 100000000);
-    var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/accounts/messages"); // + randomRoomId);
+    // db reference to messages
+    var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/accounts/messages");
     return $firebaseArray(ref);
   }
 ]);

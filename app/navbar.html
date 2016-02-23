@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default" ng-controller="userCtrl">
+    <div class ="container-fluid">
+
+      <div class="navbar-header">
+      <a class="navbar-brand" href="#">Message Board On Fire
+      </a>
+      </div>
+
+      <div ng-show="authData">
+      <p class="navbar-text"> Signed in as: {{authData.uid}}</p>
+      <button class="btn btn-default navbar-btn" ng-click="signOut()" >Sign Out</button>
+      </div>
+
+    </div>
+</nav>

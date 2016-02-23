@@ -1,6 +1,6 @@
 <div ng-controller="userCtrl">
+<div ng-hide="authData">
 
-    <div ng-hide="authData">
       <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
       <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
@@ -31,11 +31,5 @@
         </div>
       </form>
 
-    </div>
-
-    <div class ="well" ng-show="authData">
-      <p> <strong>Signed in as:</strong> {{authData.uid}}</p>
-      <button class='btn btn-default' ng-click="signOut()" >Sign Out</button>
-    </div>
-
+</div>
 </div>

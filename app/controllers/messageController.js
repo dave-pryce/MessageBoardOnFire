@@ -1,8 +1,8 @@
 ////////////////////// controller to add new messages and edit existing /////////////////////
-angular.module("sampleApp").controller("MsgCtrl", ["$scope", "chatMessages", "Message", "Auth",
-  function($scope, chatMessages, Message, Auth) {
+angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
+  function($scope, Messages, Auth) {
 
-    $scope.messages = chatMessages;
+    $scope.messages = Messages;
     $scope.auth = Auth;
 
     // check to see if signed in

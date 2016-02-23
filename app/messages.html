@@ -1,35 +1,33 @@
-<div class="panel panel-default">
+<div class="panel panel-default" ng-controller="MsgCtrl">
+
+              <div class="panel-heading">
+              <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
+              </div>
 
 
-  <div class="panel-heading">
-  <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
-  </div>
-
-        <div ng-controller="MsgCtrl">
-          <div class='panel-body'>
-            <div class="well well-sm messagewell" ng-repeat="message in messages">
+                <div class='panel-body'>
+                <div class="well well-sm messagewell" ng-repeat="message in messages">
                 <div ng-hide="message.edit">
-                  <strong>{{ message.from }}</strong>: {{ message.content }}
-                  <p> {{error}}</p>
+                <strong>{{ message.from }}</strong>: {{ message.content }}
+                <p> {{error}}</p>
                 </div>
-
 
                 <!-- show edit / delete options if correct user -->
                 <div ng-show="message.from === authData.uid">
-                  <div ng-hide="message.edit">
-                    <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
-                    <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
-                  </div>
+                <div ng-hide="message.edit">
+                <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
+                <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
+                </div>
                 </div>
 
                 <!-- show edit form -->
                 <form ng-show="message.edit" ng-submit="saveMessage(message)">
-                  <input class='form-control in-line' type="text" ng-model="message.content">
-                  <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
-                  <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
-                  <br>
-
+                <input class='form-control in-line' type="text" ng-model="message.content">
+                <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
+                <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
+                <br>
                 </form>
-          </div>
 
+                </div>
+                </div>
 </div>
