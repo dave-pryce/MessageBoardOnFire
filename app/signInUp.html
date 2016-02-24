@@ -5,20 +5,20 @@
       <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
 
-      <form class="well messagewell">
+      <form class="well messagewell" ng-show="showSignIn">
         <div class='form-group'>
         <h2>Sign In</h2>
         <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
         <br>
         <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
         <br><br>
-        <button class="btn btn-primary" ng-click="signIn()">Sign in</button>
+        <button class="btn btn-success" ng-click="signIn()">Sign in</button>
+        <button class="btn btn-link" ng-click="showSignUp()">or Sign Up</button>
         </div>
       </form>
 
-      <h4> OR </h4>
 
-      <form class="well messagewell ">
+      <form class="well messagewell" ng-show="showSignUp">
         <div class='form-group'>
         <h2>Sign Up</h2>
         <input type="text" class='form-control' placeholder="Full Name" ng-model="name">
@@ -28,6 +28,7 @@
         <input type="password" class='form-control' placeholder="password" ng-model="password">
         <br><br>
         <button class="btn btn-success" ng-click="createUser()">Sign up</button>
+        <button class="btn btn-link" ng-click="show()">or Sign In</button>
         </div>
       </form>
 

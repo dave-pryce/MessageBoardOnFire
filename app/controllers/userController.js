@@ -2,6 +2,8 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
   function($scope, Auth, Accounts, Account){
     $scope.auth = Auth;
     $scope.accounts = Accounts;
+    $scope.showSignIn = true;
+    $scope.showSignUp = false;
 
     // create new user
     $scope.createUser = function(){
@@ -65,6 +67,25 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
   });
 
 
+
+
+  // show hide sign in / up
+    $scope.showSignUp = function(){
+      $scope.showSignUp = true
+      $scope.showSignIn = false
+    };
+
+    $scope.showSignIn = function(){
+      console.log ('triggered')
+      $scope.showSignIn = true
+      $scope.showSignUp = false
+    };
+
+    $scope.show = function(){
+      console.log ('triggered')
+      $scope.showSignIn = true
+      $scope.showSignUp = false
+    };
 
     }
 
