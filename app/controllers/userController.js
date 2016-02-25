@@ -1,9 +1,7 @@
-angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts", "Account",
-  function($scope, Auth, Accounts, Account){
+angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts",
+  function($scope, Auth, Accounts){
     $scope.auth = Auth;
     $scope.accounts = Accounts;
-    $scope.showSignIn = true;
-    $scope.showSignUp = false;
 
     // create new user
     $scope.createUser = function(){
@@ -18,9 +16,9 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
         $scope.info = "User Created with uid: " + userData.uid;
 
 
-        // create user account
-        $scope.accounts.$add({
-          id: userData.uid,
+        // create user account in app
+        //$scope.accounts.child(userData.uid).$add({
+          $scope.accounts.$add({
           name : $scope.name,
           email: $scope.email,
           timestamp: Firebase.ServerValue.TIMESTAMP
@@ -41,8 +39,6 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
         password: $scope.passwordIn
       }).then(function(authData) {
         //console.log(authData);
-        $scope.account = Account(authData.uid);
-        console.log($scope.account);
         $scope.alert = "Logged in as: " + authData.uid;
         $scope.error = null;
         $scope.emailIn = null;
