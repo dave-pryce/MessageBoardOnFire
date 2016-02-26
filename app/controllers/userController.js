@@ -17,8 +17,8 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
 
 
         // create user account in app
-        //$scope.accounts.child(userData.uid).$add({
           $scope.accounts.$add({
+          $id : userData.uid,
           name : $scope.name,
           email: $scope.email,
           timestamp: Firebase.ServerValue.TIMESTAMP
