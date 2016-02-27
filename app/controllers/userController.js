@@ -2,6 +2,7 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
   function($scope, Auth, Accounts){
     $scope.auth = Auth;
     $scope.accounts = Accounts;
+    //$scope.
 
     // create new user
     $scope.createUser = function(){
