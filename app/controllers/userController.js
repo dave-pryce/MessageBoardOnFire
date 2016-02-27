@@ -16,13 +16,23 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
         $scope.info = "User Created with uid: " + userData.uid;
 
 
+        // create user vanilla javascript
+      var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/accounts");
+      ref.child(userData.uid).set({
+      //$scope.accounts.child(userData.uid).set({
+      //  Accounts.child(userData.uid).set({
+            name : $scope.name,
+            email: $scope.email,
+            timestamp: Firebase.ServerValue.TIMESTAMP
+    });
+
         // create user account in app
-          $scope.accounts.$add({
-          $id : userData.uid,
-          name : $scope.name,
-          email: $scope.email,
-          timestamp: Firebase.ServerValue.TIMESTAMP
-       });
+      //  $scope.accounts.$add({
+      //    $id : userData.uid,
+      //    name : $scope.name,
+      //    email: $scope.email,
+    //      timestamp: Firebase.ServerValue.TIMESTAMP
+    //   });
 
 
         // sign in after sign up
