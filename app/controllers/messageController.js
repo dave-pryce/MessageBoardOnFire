@@ -1,6 +1,6 @@
 ////////////////////// controller to add new messages and edit existing /////////////////////
-angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
-  function($scope, Messages, Auth) {
+angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth", "Account",
+  function($scope, Messages, Auth, Account) {
 
     $scope.messages = Messages;
     $scope.auth = Auth;
@@ -11,6 +11,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
     if (authData)
     {
     $scope.user = authData.uid;
+    $scope.account = Account(authData.uid);
     }
     else {
       $scope.user = "Guest " + Math.round(Math.random()* 100);
