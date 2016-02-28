@@ -3,21 +3,20 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
     $scope.auth = Auth;
     $scope.accounts = Accounts;
 
-
-    // create new user
+    //-------------------------- create new user --------------------------//
     $scope.createUser = function(){
 
       // null out user feedback info / error
       $scope.info = null;
       $scope.error = null;
 
-        Auth.$createUser({
-        email: $scope.email,
-        password: $scope.password}).then(function(userData) {
-        $scope.info = "User Created with uid: " + userData.uid;
+      Auth.$createUser({
+      email: $scope.email,
+      password: $scope.password}).then(function(userData) {
+      $scope.info = "User Created with uid: " + userData.uid;
 
 
-        // create user vanilla javascript
+    //----------------- create user in blazing db vanilla javascript ---------//
       var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/accounts");
       ref.child(userData.uid).set({
       //$scope.accounts.child(userData.uid).set({
@@ -42,6 +41,7 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
     }
 
 
+
       // Sign In
       $scope.signIn = function(){
 
@@ -49,11 +49,6 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
         email: $scope.emailIn,
         password: $scope.passwordIn
       }).then(function(authData) {
-        //console.log(authData);
-        //$scope.alert = "Logged in as: " + authData.uid;
-        $scope.account = Account(authData.uid);
-        console.log($scope.account);
-        console.log(authData);
         $scope.error = null;
         $scope.emailIn = null;
         $scope.passwordIn = null;
@@ -64,16 +59,21 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
       });
     }
 
-    // signOut
+    //--------------------------- signOut ----------------------------//
     $scope.signOut = function(){
       Auth.$unauth();
       $scope.alert = null;
     };
 
 
-    // check authorisation status
+    //----------------------- check authorisation status --------------//
     $scope.auth.$onAuth(function(authData){
     $scope.authData = authData;
+    //console.log(authData);
+    if (authData) {
+    $scope.account = Account(authData.uid);
+    console.log($scope.account);
+    }
   });
 
 
