@@ -1,8 +1,8 @@
-angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts",
-  function($scope, Auth, Accounts){
+angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts", "Account",
+  function($scope, Auth, Accounts, Account){
     $scope.auth = Auth;
     $scope.accounts = Accounts;
-    //$scope.
+
 
     // create new user
     $scope.createUser = function(){
@@ -50,7 +50,10 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
         password: $scope.passwordIn
       }).then(function(authData) {
         //console.log(authData);
-        $scope.alert = "Logged in as: " + authData.uid;
+        //$scope.alert = "Logged in as: " + authData.uid;
+        $scope.account = Account(authData.uid);
+        console.log($scope.account);
+        console.log(authData);
         $scope.error = null;
         $scope.emailIn = null;
         $scope.passwordIn = null;
