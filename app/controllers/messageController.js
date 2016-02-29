@@ -47,6 +47,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
 
     $scope.messages.$add({
       from : $scope.user,
+      name : $scope.account.name,
       content: $scope.message,
       timestamp: Firebase.ServerValue.TIMESTAMP
     });
