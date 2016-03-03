@@ -6,6 +6,7 @@
 
 
                 <div class='panel-body'>
+                <h4 ng-hide="messages"> No messages. </h4>
                 <div class="well well-sm messagewell" ng-repeat="message in messages">
                 <div ng-hide="message.edit">
                 <strong>{{ message.name }}</strong>: {{ message.content }}

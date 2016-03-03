@@ -72,7 +72,6 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts"
     //console.log(authData);
     if (authData) {
     $scope.account = Account(authData.uid);
-    console.log($scope.account);
     }
   });
 
