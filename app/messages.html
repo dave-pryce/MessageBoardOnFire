@@ -1,22 +1,17 @@
-<div class="panel panel-default" ng-controller="MsgCtrl">
+<div class="messagescontainer" ng-controller="MsgCtrl">
 
-              <div class="panel-heading">
-              <h2><span class='glyphicon glyphicon-list'></span> Messages</h4>
-              </div>
-
-
-                <div class='panel-body'>
                 <h4 ng-hide="messages"> No messages. </h4>
-                <div class="well well-sm messagewell" ng-repeat="message in messages">
+                <h4 class="">Recent Messages </h4>
+                <div class="messagecard container-fluid" ng-repeat="message in messages">
                 <div ng-hide="message.edit">
-                <strong>{{ message.name }}</strong>: {{ message.content }}
-                <p> {{error}}</p>
+                <p class='messagetxt'><strong>{{ message.name }}</strong>: {{ message.content }}</p>
+                 <p>{{error}}</p>
                 </div>
 
                 <!-- show edit / delete options if correct user -->
                 <div ng-show="message.from === authData.uid">
                 <div ng-hide="message.edit">
-                <button class='btn btn-warning' ng-click="showEdit(message)">edit</button>
+                <button class='btn btn-link' ng-click="showEdit(message)">Edit</button>
                 <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
                 </div>
                 </div>
@@ -28,7 +23,14 @@
                 <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
                 <br>
                 </form>
+                </div>
+
+
+                <!-- new message -->
+                <div ng-include="'newMessages.html'"></div>
 
                 </div>
-                </div>
-</div>
+
+
+
+    <button class="firebutton" ng-click="Auth.$unauth()">Out</button>

@@ -1,6 +1,7 @@
 body {
   margin : auto;
-  background-color: #e6e6e6;
+  background: #4A4A4A;
+  border: 1px solid #979797;
 }
 
 .mainContent{
@@ -30,4 +31,80 @@ width : 400px;
   padding-top: 10px ;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+
+
+.header {
+background-image: linear-gradient(-180deg, #FB0505 0%, #F17E07 70%);
+border: 0px solid #979797;
+}
+
+.headerText {
+font-family: ArialMT;
+font-size: 18px;
+color: #FFFFFF;
+}
+
+.headerText:hover{
+color: #4A4A4A;
+}
+
+.text-right{
+  padding-right:5px;
+}
+
+
+.firebutton {
+background-image: radial-gradient(80% 50%, #FB0505 20%, #F17E07 80%);
+border: 2px solid #979797;
+/* Up: */
+font-family: ArialMT;
+font-size: 18px;
+color: #FFFFFF;
+line-height: 24px;
+border: 2px solid #979797;
+font-family: ArialMT;
+font-size: 18px;
+color: #FFFFFF;
+line-height: 24px;
+border-radius: 50%;
+height: 57px;
+width: 57px;
+}
+
+
+.firebutton:hover
+{
+background-image: radial-gradient(50% 50%, #FB0505 20%, #F17E07 80%);
+}
+
+
+.messagescontainer{
+background-image: linear-gradient(-180deg, #545354 0%, #9B9B9B 100%);
+/*border: 1px solid #979797;*/
+border-radius: 8px;
+min-height: 70%;
+padding: 10px 5px 10px 5px;
+margin-bottom: 10px;
+}
+
+/* Recent messages: */
+{
+font-family: ArialMT;
+font-size: 24px;
+color: #FFFFFF;
+}
+
+.messagecard {
+background: #FFFFFF;
+/*border: 1px solid #979797;*/
+border-radius: 8px;
+margin: 10px 5px 5px 5px;
+min-height :  71px;
+}
+
+.messagetxt{
+  font-family: ArialMT;
+  font-size: 18px;
+  padding: 15px 20px 5px 5px;
 }
