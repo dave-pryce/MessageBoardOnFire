@@ -1,7 +1,7 @@
 <div class="messagescontainer" ng-controller="MsgCtrl">
 
                 <h4 ng-hide="messages"> No messages. </h4>
-                <h4 class="">Recent Messages </h4>
+                <h4 class="messageHeading">Recent Messages </h4>
                 <div class="messagecard container-fluid" ng-repeat="message in messages">
                 <div ng-hide="message.edit">
                 <p class='messagetxt'><strong>{{ message.name }}</strong>: {{ message.content }}</p>
@@ -18,7 +18,8 @@
 
                 <!-- show edit form -->
                 <form ng-show="message.edit" ng-submit="saveMessage(message)">
-                <input class='form-control in-line' type="text" ng-model="message.content">
+                <br>
+                <input class='form-control in-line messagetxt' type="text" ng-model="message.content">
                 <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
                 <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
                 <br>
@@ -31,6 +32,6 @@
 
                 </div>
 
-
-
-    <button class="firebutton" ng-click="Auth.$unauth()">Out</button>
+                <div ng-controller="userCtrl" ng-show="authData">
+                <button  class="firebutton" ng-click="signOut()">Out</button>
+                </div>

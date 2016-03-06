@@ -4,34 +4,30 @@
       <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
       <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
 
-      <button class="firebutton" data-toggle="tab" href="#signin">In</button>
-      <button class="firebutton" data-toggle="tab" href="#signup">Up</button>
-
-
 
   <div class="tab-content">
     <div id="signin" class="tab-pane fade in active">
-      <form class="well messagewell">
+      <form class="sign container-fluid">
         <div class='form-group'>
         <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
         <br>
         <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
         <br><br>
-        <button class="btn btn-success" ng-click="signIn()">Sign in</button>
+        <button class="firebutton" ng-click="signIn()">Go</button>
         </div>
       </form>
+      </div>
 
-  </div>
     <div id="signup" class="tab-pane fade">
-      <form class="well messagewell">
+      <form class="sign container-fluid">
         <div class='form-group'>
-        <input type="text" class='form-control' placeholder="Full Name" ng-model="name">
+        <input type="text" class='form-control' placeholder="name" ng-model="name">
         <br>
         <input type="text" class='form-control' placeholder="email" ng-model="email">
         <br>
         <input type="password" class='form-control' placeholder="password" ng-model="password">
-        <br><br>
-        <button class="btn btn-success" ng-click="createUser()">Sign up</button>
+        <br>
+        <button class="firebutton" ng-click="createUser()">Go</button>
         </div>
       </form>
 
@@ -40,7 +36,11 @@
   </div>
 </div>
 
-
+<div ng-hide='authData'>
+<h3 class='calltoaction'>Fire up the conversation... Join</h3>
+<button class="firebutton" data-toggle="tab" href="#signin">In</button>
+<button class="firebutton" data-toggle="tab" href="#signup">Up</button>
+</div>
 
 
 
