@@ -42,7 +42,7 @@ border: 0px solid #979797;
 }
 
 .headerText {
-font-family: ArialMT;
+font-family: Arial;
 font-size: 18px;
 color: #FFFFFF;
 }
@@ -60,14 +60,11 @@ color: #4A4A4A;
 background-image: radial-gradient(80% 50%, #FB0505 20%, #F17E07 80%);
 border: 2px solid #979797;
 /* Up: */
-font-family: ArialMT;
+font-family: Arial;
 font-size: 18px;
 color: #FFFFFF;
 line-height: 24px;
 border: 2px solid #FFFFFF;;
-font-family: ArialMT;
-font-size: 18px;
-color: #FFFFFF;
 line-height: 24px;
 border-radius: 50%;
 height: 57px;
@@ -82,13 +79,13 @@ background-image: radial-gradient(50% 50%, #FB0505 20%, #F17E07 80%);
 
 
 .messageHeading {
-font-family: ArialMT;
+font-family: Arial;
 font-size: 24px;
 color: #FFFFFF;
 }
 
 .calltoaction {
-font-family: ArialMT;
+font-family: Arial;
 font-size: 24px;
 color: #9B9B9B;
 text-align: center;
@@ -107,14 +104,20 @@ margin-bottom: 10px;
 
 .messagecard {
 background: #FFFFFF;
-/*border: 1px solid #979797;*/
 border-radius: 8px;
 margin: 10px 5px 5px 5px;
 min-height :  71px;
 }
 
 .messagetxt{
-  font-family: ArialMT;
+  font-family: Arial;
   font-size: 18px;
   padding: 15px 20px 5px 5px;
+}
+
+.messagecardnew {
+background-image: linear-gradient(-180deg, #545354 0%, #9B9B9B 100%);
+border-radius: 8px;
+margin: 10px 5px 5px 5px;
+min-height :  71px;
 }
