@@ -2,7 +2,7 @@
 
 
                 <h4 class="messageHeading">Recent Messages </h4>
-                <div class="messagecard container-fluid" ng-repeat="message in messages">
+                <div class="messagecard container-fluid" ng-repeat="message in messages | orderBy:TIMESTAMP:reverse | limitTo:5">
                 <div ng-hide="message.edit">
                 <p class='messagetxt'><strong>{{ message.name }}</strong>: {{ message.content }}</p>
                  <p>{{error}}</p>
