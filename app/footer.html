@@ -1,0 +1,13 @@
+<div ng-controller="userCtrl">
+
+  <div ng-show="authData">
+  <button  class="firebutton right" ng-click="signOut()">Out</button>
+  </div>
+
+  <div ng-hide="authData">
+  <h3 class='calltoaction'>Fire up the conversation... Join</h3>
+  <button class="firebutton left" data-toggle="modal" href="#signin">In</button>
+  <button class="firebutton right" data-toggle="modal" href="#signup">Up</button>
+  </div>
+
+</div>

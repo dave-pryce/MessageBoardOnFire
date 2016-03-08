@@ -6,20 +6,29 @@
 
 
   <div class="tab-content">
-    <div id="signin" class="tab-pane fade in active">
-      <form class="sign container-fluid">
+    <div id="signin" class="modal fade">
+    <div class="modal-dialog">
+    <form class="sign container-fluid">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="messageHeading">Sign In</h4>
         <div class='form-group'>
         <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
         <br>
         <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
-        <br><br>
-        <button class="firebutton" ng-click="signIn()">Go</button>
+        <br>
+        <button class="btn btn-link" data-toggle="modal" href="#signup">Sign Up</button>
+        <button class="firebutton right" ng-click="signIn()">Go</button>
+        <br>
         </div>
       </form>
       </div>
+    </div>
 
-    <div id="signup" class="tab-pane fade">
+    <div id="signup" class="modal fade">
+      <div class="modal-dialog">
       <form class="sign container-fluid">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="messageHeading">Sign Up</h4>
         <div class='form-group'>
         <input type="text" class='form-control' placeholder="name" ng-model="name">
         <br>
@@ -27,26 +36,16 @@
         <br>
         <input type="password" class='form-control' placeholder="password" ng-model="password">
         <br>
-        <button class="firebutton" ng-click="createUser()">Go</button>
+        <button class="btn btn-link" data-toggle="modal" href="#signin">Sign In</button>
+        <button class="firebutton right" ng-click="createUser()">Go</button>
+        <br>
         </div>
       </form>
-
+    </div>
     </div>
 
   </div>
 </div>
-
-<div ng-hide='authData'>
-<h3 class='calltoaction'>Fire up the conversation... Join</h3>
-<button class="firebutton" data-toggle="tab" href="#signin">In</button>
-<button class="firebutton" data-toggle="tab" href="#signup">Up</button>
-</div>
-
-
-
-
-
-
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 body {
   margin : auto;
   background: #4A4A4A;
-  border: 1px solid #979797;
+  padding-bottom : 50px;
 }
 
 .mainContent{
@@ -75,6 +75,23 @@ width: 57px;
 .firebutton:hover
 {
 background-image: radial-gradient(50% 50%, #FB0505 20%, #F17E07 80%);
+}
+
+.firebutton:focus {
+  outline:0;
+}
+
+.btn-link:focus {
+  outline:0;
+}
+
+.left
+{
+  float : left;
+}
+
+.right {
+  float : right;
 }
 
 
