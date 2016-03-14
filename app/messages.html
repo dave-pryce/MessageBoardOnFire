@@ -5,7 +5,9 @@
 
                 <!-- show while loading -->
                 <div ng-repeat="i in [1, 2, 3, 4, 5]" class="messagecard" ng-hide="messages.length > 0">
-                  <div class="loader">Loading...</div>
+                  <div class="messagecard container-fluid loading">
+                      <p class='messagetxt'><strong> ... </strong></p>
+                  </div>
                 </div>
 
                 <div class="messagecard container-fluid" ng-repeat="message in messages | orderBy:TIMESTAMP:reverse | limitTo:5">
