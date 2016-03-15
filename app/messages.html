@@ -5,12 +5,17 @@
 
                 <!-- show while loading -->
                 <div ng-repeat="i in [1, 2, 3, 4, 5]" class="messagecard" ng-hide="messages.length > 0">
+<<<<<<< HEAD
                   <div class="messagecard container-fluid loading">
                       <p class='messagetxt'><strong> ... </strong></p>
+=======
+                  <div class="container-fluid">
+                  <div class="loader"></div>
+>>>>>>> origin/master
                   </div>
                 </div>
 
-                <div class="messagecard container-fluid" ng-repeat="message in messages | orderBy:TIMESTAMP:reverse | limitTo:5">
+                <div class="messagecard container-fluid" ng-repeat="message in messages | orderBy:TIMESTAMP | limitTo:5">
                   <div ng-hide="message.edit">
                   <p class='messagetxt'><strong>{{ message.name }}</strong>: {{ message.content }}</p>
                    <p>{{error}}</p>
