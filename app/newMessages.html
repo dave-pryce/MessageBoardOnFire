@@ -1,9 +1,9 @@
 <div class="messagecard container-fluid" ng-controller="MsgCtrl" ng-show="authData">
   <form ng-submit="addMessage()">
   <h4 class='messageHeading black'>New Message</h4>
-  <input  class="form-control" type="text" ng-model="message">
-  <br>
+  <textarea class="form-control" type="textarea" rows="3" ng-model="message"></textarea>
+  <p class='text-right small'>{{150 - message.length}}</p>
   <button class="firebutton pull-right" type="submit" >Add</button>
-  <br>
   </form>
+
 </div>

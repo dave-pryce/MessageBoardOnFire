@@ -3,8 +3,8 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
   function($scope, Messages, Auth, Account) {
 
     $scope.messages = Messages;
-    console.log($scope.messages.$loaded());
-    console.log($scope.messages.length);
+    //console.log($scope.messages.$loaded());
+    //console.log($scope.messages.length);
 
     $scope.auth = Auth;
 
