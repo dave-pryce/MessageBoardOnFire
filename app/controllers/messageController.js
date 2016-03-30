@@ -7,6 +7,8 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
 
     // check to see if signed in
     $scope.auth.$onAuth(function(authData){
+
+    if (authData) {
     $scope.authData = authData;
     $scope.account = Account(authData.uid);
     $scope.user = authData.uid;
@@ -46,7 +48,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
                   });
                   $scope.message = "";
                 };
-
+              }
   });
 
 
