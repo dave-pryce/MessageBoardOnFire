@@ -1,7 +1,6 @@
-angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Accounts", "Account",
-  function($scope, Auth, Accounts, Account){
+angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
+  function($scope, Auth, Account){
     $scope.auth = Auth;
-    $scope.accounts = Accounts;
 
     //-------------------------- create new user --------------------------//
     $scope.createUser = function(){
