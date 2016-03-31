@@ -10,7 +10,7 @@
                   </div>
                 </div>
 
-                <div class="messagecard container-fluid" ng-repeat="message in messages | limitTo:5  | orderBy:'timestamp' : true ">
+                <div class="messagecard container-fluid" ng-repeat="message in messages | orderBy:'timestamp'">
                   <div ng-hide="message.edit">
                   <p class='messagetxt'><strong>{{ message.name }}</strong>: {{ message.content }}</p>
                    <p>{{error}}</p>
