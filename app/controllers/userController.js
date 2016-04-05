@@ -11,13 +11,13 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
 
       Auth.$createUser({
       email: $scope.email,
-      password: $scope.password}).then(function(userData) {
-      $scope.info = "User Created with uid: " + userData.uid;
+      password: $scope.password}).then(function(authData) {
+      $scope.info = "User Created with uid: " + authData.uid;
 
 
     //----------------- create user account in blazing db vanilla javascript ---------//
       var ref = new Firebase("https://blazing-inferno-4471.firebaseio.com/accounts");
-      ref.child(userData.uid).set({
+      ref.child(authData.uid).set({
       //$scope.accounts.child(userData.uid).set({
       //  Accounts.child(userData.uid).set({
             name : $scope.name,
@@ -54,7 +54,7 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
       Auth.$unauth();
       $scope.alert = null;
       $scope.error = null;
-        };
+      };
 
 
     //----------------------- check authorisation status --------------//

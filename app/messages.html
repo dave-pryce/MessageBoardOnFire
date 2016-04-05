@@ -11,35 +11,35 @@
                 </div>
 
                 <div class="messagecard container-fluid" ng-repeat="message in messages | orderBy:'timestamp'">
+
+
                   <div ng-hide="message.edit">
                   <p class='messagetxt'><strong>{{ message.name }}</strong>: {{ message.content }}</p>
                    <p>{{error}}</p>
                   </div>
 
-                  <div ng-hide="!authData">
-                  <!-- show edit / delete options if correct user -->
-                  <div ng-show="message.from === authData.uid">
-                  <div ng-hide="message.edit">
-                  <button class='btn btn-link' ng-click="showEdit(message)">Edit</button>
-                  <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
+                      <div ng-controller="userCtrl" ng-show="authData">
+                      <!-- show edit / delete options if correct user -->
+                      <div ng-show="message.from === authData.uid">
+                      <div ng-hide="message.edit">
+                      <button class='btn btn-link' ng-click="showEdit(message)">Edit</button>
+                      <button class='btn btn-link pull-right' ng-click="messages.$remove(message)">Delete</button>
+                      </div>
+                      </div>
+
+                      <!-- show edit form -->
+                      <form ng-show="message.edit" ng-submit="saveMessage(message)">
+                      <br>
+                      <input class='form-control in-line' type="text" ng-model="message.content">
+                      <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
+                      <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
+                      <br>
+                      </form>
+                      </div>
                   </div>
-                  </div>
-
-                  <!-- show edit form -->
-                  <form ng-show="message.edit" ng-submit="saveMessage(message)">
-                  <br>
-                  <input class='form-control in-line' type="text" ng-model="message.content">
-                  <button class='btn btn-link pull-right' ng-click="message.edit = false">Cancel</button>
-                  <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
-                  <br>
-                  </form>
-                  </div>
-                </div>
-
-
-                <!-- new message -->
-                <div ng-include="'newMessages.html'"></div>
-
-                </div>
+                      <!-- new message -->
+                      <div ng-controller="userCtrl" ng-show="authData">
+                      <div ng-include="'newMessages.html'"></div>
+                      </div>
 
 </div>
