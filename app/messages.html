@@ -16,6 +16,7 @@
                    <p>{{error}}</p>
                   </div>
 
+                  <div ng-hide="!authData">
                   <!-- show edit / delete options if correct user -->
                   <div ng-show="message.from === authData.uid">
                   <div ng-hide="message.edit">
@@ -32,6 +33,7 @@
                   <!--button class='btn btn-success pull-left' ng-click="saveMessage(message)">Save</button-->
                   <br>
                   </form>
+                  </div>
                 </div>
 
 

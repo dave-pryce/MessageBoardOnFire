@@ -31,8 +31,6 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
       }).catch(function(error) {$scope.error = error;});
     }
 
-
-
       // Sign In
       $scope.signIn = function(){
 
@@ -55,7 +53,8 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
     $scope.signOut = function(){
       Auth.$unauth();
       $scope.alert = null;
-    };
+      $scope.error = null;
+        };
 
 
     //----------------------- check authorisation status --------------//

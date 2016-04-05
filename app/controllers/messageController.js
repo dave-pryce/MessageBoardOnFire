@@ -16,9 +16,7 @@ angular.module("sampleApp").controller("MsgCtrl", ["$scope", "Messages", "Auth",
     // signed in functions only
                   // show edit form
                   $scope.showEdit = function(message){
-                    //console.log("edit");
                     message.edit = true;
-
                   };
 
                   // edit message
