@@ -12,7 +12,6 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
       Auth.$createUser({
       email: $scope.email,
       password: $scope.password}).then(function(authData) {
-      $scope.info = "User Created with uid: " + authData.uid;
 
 
     //----------------- create user account in blazing db vanilla javascript ---------//
