@@ -40,7 +40,6 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
         $scope.error = null;
         $scope.emailIn = null;
         $scope.passwordIn = null;
-        $scope.close = "modal";
         // signin to expired on browser shut down
         remember : "sessionOnly"
       }).catch(function(error) {
