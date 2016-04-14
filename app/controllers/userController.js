@@ -41,7 +41,8 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
         $scope.emailIn = null;
         $scope.passwordIn = null;
         // signin to expired on browser shut down
-        remember : "sessionOnly"
+        remember : "sessionOnly";
+        /*(#signin).hide;*/
       }).catch(function(error) {
         $scope.error = "Authentication failed: " + error;
       });
