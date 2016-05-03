@@ -1,15 +1,18 @@
 <div ng-controller="userCtrl">
 
-
   <div ng-show="authData">
   <button  class="firebutton right" ng-click="signOut()">Out</button>
   </div>
 
 
-  <div ng-controller="ModalDemoCtrl" ng-hide="authData">
+  <div ng-hide="authData">
   <h3 class='calltoaction'>Fire up the conversation... Join</h3>
   <button class="firebutton left" data-toggle="modal" href="#signin">In</button>
+
+  <!--div ng-controller="ModalDemoCtrl">
   <button class="firebutton left" ng-click="open()">In</button>
+</div-->
+
   <button class="firebutton right" data-toggle="modal" href="#signup">Up</button>
   </div>
 
