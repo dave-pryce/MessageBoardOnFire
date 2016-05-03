@@ -1,0 +1,73 @@
+<div ng-controller="userCtrl" ng-hide="authData">
+
+
+<div ng-controller="ModalDemoCtrl">
+      <script type="text/ng-template" id="myModalContent.html">
+          <div class="modal-body">
+            <form class="sign container-fluid">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                <!-- errors -->
+                <p ng-if="error" class="alert alert-danger" role="alert">{{ SignInError }}</p>
+
+                <h4 class="messageHeading">Sign In</h4>
+                <div class='form-group'>
+                <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
+                <br>
+                <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
+                <br>
+                <button class="firebutton right" ng-click="signIn()">Go</button>
+                </div>
+                <br>
+              </form>
+          </div>
+      </script>
+
+
+
+    <div id="signin" class="modal fade">
+    <div class="modal-dialog">
+    <form class="sign container-fluid">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+        <!-- errors-->
+        <p ng-if="error" class="alert alert-danger" role="alert">{{ SignUpError }}</p>
+
+        <h4 class="messageHeading">Sign In</h4>
+        <div class='form-group'>
+        <input type ="text" class='form-control' placeholder="email" ng-model="emailIn" >
+        <br>
+        <input type ="password" class='form-control' placeholder="password" ng-model="passwordIn" >
+        <br>
+        <button class="firebutton right" ng-click="signIn()" data-dismiss='modal'>Go</button>
+        </div>
+        <br>
+      </form>
+      </div>
+      </div>
+
+
+    <div id="signup" class="modal fade">
+      <div class="modal-dialog">
+      <form class="sign container-fluid">
+        <!-- errors / warnings -->
+        <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
+        <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="messageHeading">Sign Up</h4>
+        <div class='form-group'>
+        <input type="text" class='form-control' placeholder="name" ng-model="name">
+        <br>
+        <input type="text" class='form-control' placeholder="email" ng-model="email">
+        <br>
+        <input type="password" class='form-control' placeholder="password" ng-model="password">
+        <br>
+        <button class="firebutton right" ng-click="createUser()" data-dismiss='modal'>Go</button>
+        <br>
+        </div>
+      </form>
+      </div>
+    </div>
+
+
+</div>

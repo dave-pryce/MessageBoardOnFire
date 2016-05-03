@@ -5,9 +5,9 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
     //-------------------------- create new user --------------------------//
     $scope.createUser = function(){
 
-      // null out user feedback info / error
-      $scope.info = null;
-      $scope.error = null;
+      // null out user feedback errors
+      $scope.signInError = null;
+      $scope.signUpError = null;
 
       Auth.$createUser({
       email: $scope.email,
@@ -27,7 +27,7 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
 
         // sign in after sign up
         Auth.$authWithPassword({email: $scope.email,password: $scope.password})
-      }).catch(function(error) {$scope.error = error;});
+      }).catch(function(error) {$scope.signUpError = error;});
     }
 
       // Sign In
@@ -45,14 +45,13 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
         $modalInstance.close();
         /*(#signin).hide;*/
       }).catch(function(error) {
-        $scope.error = "Authentication failed: " + error;
+        $scope.signInError = "Authentication failed: " + error;
       });
     }
 
     //--------------------------- signOut ----------------------------//
     $scope.signOut = function(){
       Auth.$unauth();
-      $scope.alert = null;
       $scope.error = null;
       };
 
