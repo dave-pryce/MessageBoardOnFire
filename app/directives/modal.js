@@ -27,7 +27,7 @@ angular.module("sampleApp").controller('ModalCtrl', function ($scope, $uibModal,
 // Please note that $uibModalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
 
-angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
+angular.module('ui.bootstrap').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance) {
 
 
   $scope.signIn() = function () {
