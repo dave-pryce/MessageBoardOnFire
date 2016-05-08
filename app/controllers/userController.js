@@ -1,19 +1,7 @@
 angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
   function($scope, Auth, Account){
     $scope.auth = Auth;
-
-
-    // show / hide sign in
-    $scope.toggleSignIn = function(){
-      $scope.SignIn = !$scope.SignIn;
-      console.log($scope.SignIn);
-    };
-
-    // show / hide sign up
-    $scope.toggleSignUp = function(){
-      $scope.SignUp = !$scope.SignUp;
-      console.log($scope.SignUp);
-    };
+    $scope.global = {};
 
     //-------------------------- create new user --------------------------//
     $scope.createUser = function(){

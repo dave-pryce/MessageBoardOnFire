@@ -1,7 +1,7 @@
 <div ng-controller="userCtrl" ng-hide="authData">
 
-
-    <form class="sign container-fluid" ng-hide="SignIn">
+    <!--h4 class="messageHeading">{{signIn}} | {{SignUp}}</h4-->
+    <form class="sign container-fluid" ng-show="showSignIn">
         <!-- errors -->
         <p ng-if="signInError" class="alert alert-danger" role="alert">{{ signInError }}</p>
 
@@ -17,7 +17,7 @@
       </form>
 
 
-      <form class="sign container-fluid" ng-show="SignUp">
+      <form class="sign container-fluid" ng-show="showSignUp">
         <!-- errors -->
         <p ng-if="signUpError" class="alert alert-danger" role="alert">{{ SignUpError }}</p>
       <h4 class="messageHeading">Sign Up</h4>
@@ -33,5 +33,17 @@
         </div>
       </form>
 
-
 </div>
+
+<!-- footer -->
+      <div ng-show="authData">
+      <button  class="firebutton right" ng-click="signOut()">Out</button>
+      </div>
+
+
+      <div ng-hide="authData">
+      <h3 class='calltoaction'>Fire up the conversation... Join</h3>
+      <!--button class="firebutton left" ng-click="toggleSignIn()">In</button-->
+      <button class="firebutton left" ng-click="showSignIn = !showSignIn">In</button>
+      <button class="firebutton right" ng-click="showSignUp = !showSignUp">Up</button>
+      </div>
