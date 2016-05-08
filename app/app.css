@@ -42,8 +42,7 @@ width : 400px;
 
 
 .sign{
-  background-image: linear-gradient(-180deg, #545354 0%, #9B9B9B 100%);
-  border: 1px solid #FFFFFF;
+background-image: linear-gradient(-180deg, #545354 0%, #9B9B9B 100%);
   border-radius: 8px;
   padding-top: 30px ;
   margin-bottom: 10px;

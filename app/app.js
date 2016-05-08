@@ -1,2 +1,2 @@
 // define app
-angular.module("sampleApp",["firebase", "ui.bootstrap"]);
+angular.module("sampleApp",["firebase"]);

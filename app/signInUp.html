@@ -1,14 +1,9 @@
 <div ng-controller="userCtrl" ng-hide="authData">
 
 
-    <div id="signin" class="modal fade">
-    <div class="modal-dialog">
-    <form class="sign container-fluid">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-        <!-- errors / warnings -->
-        <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
-        <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
+    <form class="sign container-fluid" ng-hide="SignIn">
+        <!-- errors -->
+        <p ng-if="signInError" class="alert alert-danger" role="alert">{{ signInError }}</p>
 
         <h4 class="messageHeading">Sign In</h4>
         <div class='form-group'>
@@ -20,18 +15,12 @@
         </div>
         <br>
       </form>
-      </div>
-      </div>
 
 
-    <div id="signup" class="modal fade">
-      <div class="modal-dialog">
-      <form class="sign container-fluid">
-        <!-- errors / warnings -->
-        <p ng-if="info"class="alert alert-success" role="alert" >{{ info }}</p>
-        <p ng-if="error" class="alert alert-danger" role="alert">{{ error }}</p>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="messageHeading">Sign Up</h4>
+      <form class="sign container-fluid" ng-show="SignUp">
+        <!-- errors -->
+        <p ng-if="signUpError" class="alert alert-danger" role="alert">{{ SignUpError }}</p>
+      <h4 class="messageHeading">Sign Up</h4>
         <div class='form-group'>
         <input type="text" class='form-control' placeholder="name" ng-model="name">
         <br>
@@ -43,8 +32,6 @@
         <br>
         </div>
       </form>
-      </div>
-    </div>
 
 
 </div>

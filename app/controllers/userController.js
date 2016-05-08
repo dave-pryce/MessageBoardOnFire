@@ -2,6 +2,19 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
   function($scope, Auth, Account){
     $scope.auth = Auth;
 
+
+    // show / hide sign in
+    $scope.toggleSignIn = function(){
+      $scope.SignIn = !$scope.SignIn;
+      console.log($scope.SignIn);
+    };
+
+    // show / hide sign up
+    $scope.toggleSignUp = function(){
+      $scope.SignUp = !$scope.SignUp;
+      console.log($scope.SignUp);
+    };
+
     //-------------------------- create new user --------------------------//
     $scope.createUser = function(){
 
@@ -27,32 +40,34 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
 
         // sign in after sign up
         Auth.$authWithPassword({email: $scope.email,password: $scope.password})
-      }).catch(function(error) {$scope.signUpError = error;});
+      }).catch(function(error) {
+        $scope.signUpError = "Sign In failed: " + error;
+      });
     }
 
       // Sign In
       $scope.signIn = function(){
 
+        // null out errors
+        $scope.signInError = null;
+        $scope.signUpError = null;
+
       Auth.$authWithPassword({
         email: $scope.emailIn,
         password: $scope.passwordIn
       }).then(function(authData) {
-        $scope.error = null;
         $scope.emailIn = null;
         $scope.passwordIn = null;
         // signin to expired on browser shut down
         remember : "sessionOnly";
-        $modalInstance.close();
-        /*(#signin).hide;*/
       }).catch(function(error) {
-        $scope.signInError = "Authentication failed: " + error;
+        $scope.signInError = "Sign In failed: " + error;
       });
     }
 
     //--------------------------- signOut ----------------------------//
     $scope.signOut = function(){
       Auth.$unauth();
-      $scope.error = null;
       };
 
 
