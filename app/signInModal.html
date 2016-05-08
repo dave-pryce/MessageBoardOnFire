@@ -4,7 +4,7 @@
       <script type="text/ng-template" id="signInModal.html">
           <div class="modal-body">
             <form class="sign container-fluid">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                 <!-- errors -->
                 <p ng-if="error" class="alert alert-danger" role="alert">{{ SignInError }}</p>
