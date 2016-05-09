@@ -33,8 +33,6 @@
         </div>
       </form>
 
-</div>
-
 <!-- footer -->
       <div ng-show="authData">
       <button  class="firebutton right" ng-click="signOut()">Out</button>
@@ -43,7 +41,9 @@
 
       <div ng-hide="authData">
       <h3 class='calltoaction'>Fire up the conversation... Join</h3>
-      <!--button class="firebutton left" ng-click="toggleSignIn()">In</button-->
-      <button class="firebutton left" ng-click="showSignIn = !showSignIn">In</button>
+      <button class="firebutton left" ng-click="toggleSignIn()">In</button>
+      <!--button class="firebutton left" ng-click="showSignIn = !showSignIn">In</button-->
       <button class="firebutton right" ng-click="showSignUp = !showSignUp">Up</button>
       </div>
+
+</div>
