@@ -7,7 +7,14 @@ angular.module("sampleApp").controller("userCtrl", ["$scope", "Auth", "Account",
     $scope.toggleSignIn = function(){
       $scope.showSignIn = !$scope.showSignIn;
       $scope.showSignUp = false;
-      console.log(showSignIn);
+      //console.log(showSignIn);
+    }
+
+    // toggle sign up
+    $scope.toggleSignUp = function(){
+      $scope.showSignUp = !$scope.showSignUp;
+      $scope.showSignIn = false;
+      //console.log(showSignIn);
     }
 
 
