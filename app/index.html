@@ -2,6 +2,7 @@
   <head>
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script>
 
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
@@ -16,6 +17,9 @@
 
     <!-- app.js -->
     <script src="app.js"></script>
+
+    <!--- route.js -->
+    <script src="routes/route.js"></script>
 
     <!-- Factories -->
     <script src="factories/messageArray.js"></script>
@@ -38,6 +42,8 @@
   </head>
 
   <body ng-app="sampleApp">
+
+  <div ng-view> </div>
 
   <!-- Navbar -->
   <div ng-include="'navbar.html'"></div>
